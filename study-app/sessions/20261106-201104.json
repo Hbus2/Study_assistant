@@ -1,0 +1,92 @@
+{
+ "id": "20261106-201104",
+ "meta": {
+  "subject": "",
+  "course": "",
+  "chapter": "",
+  "lesson": "",
+  "goal": ""
+ },
+ "messages": [
+  {
+   "role": "user",
+   "text": "How many tokens on average are you using here?",
+   "images": []
+  },
+  {
+   "role": "assistant",
+   "text": "I can\u2019t see exact token counts here, but the API\u2019s `usage` field reports input and output tokens for each request."
+  },
+  {
+   "role": "user",
+   "text": "tell me about confidence intervals",
+   "images": []
+  },
+  {
+   "role": "assistant",
+   "text": "A **confidence interval (CI)** gives a range of plausible values for an unknown population parameter, such as a population mean.\n\nFor a mean, the general form is:\n\n$$\n\\text{estimate} \\pm \\text{margin of error}\n$$\n\n**Example:** Suppose a random sample of $100$ people has a mean of $50$ and a standard deviation of $10$.\n\n1. Calculate the standard error: $SE = 10/\\sqrt{100} = 1$.\n2. For an approximate 95% CI, multiply by $1.96$: the margin of error is $1.96$.\n3. Construct the interval: $50 \\pm 1.96 = (48.04,\\ 51.96)$.\n\nThe standard error measures sampling variability; the multiplier sets the confidence level. This approximation assumes an independent random sample and a suitable sampling distribution.\n\n**Interpretation:** If we repeatedly sampled and built intervals this way, about 95% of those intervals would contain the true population mean.\n\n**Takeaway:** A confidence interval combines an estimate with a margin reflecting its uncertainty."
+  }
+ ],
+ "notes": [
+  {
+   "type": "definition",
+   "title": "Confidence interval",
+   "content": "A confidence interval (CI) is a range of plausible values for an unknown population parameter, constructed from sample data.",
+   "importance": 3,
+   "id": "24e27735",
+   "added": "2026-11-06T20:14"
+  },
+  {
+   "type": "formula",
+   "title": "Confidence interval for a mean (approximate)",
+   "content": "CI = estimate \u00b1 margin of error. For a 95% CI with known/large-sample standard error, margin of error is approximately $1.96\\,SE$.",
+   "latex": "\\text{estimate} \\pm 1.96\\,SE",
+   "importance": 3,
+   "id": "0501dcc6",
+   "added": "2026-11-06T20:14"
+  },
+  {
+   "type": "procedure",
+   "title": "Constructing a confidence interval",
+   "content": "1. Compute the standard error (e.g. $SE=s/\\sqrt n$). 2. Choose the critical multiplier for the confidence level (approximately 1.96 for 95%). 3. Calculate estimate \u00b1 multiplier \u00d7 SE.",
+   "importance": 3,
+   "id": "b1895339",
+   "added": "2026-11-06T20:14"
+  },
+  {
+   "type": "concept",
+   "title": "Interpreting a 95% confidence interval",
+   "content": "In repeated sampling, about 95% of intervals constructed by this method would contain the true population parameter; it is not a 95% probability statement about a particular fixed interval.",
+   "importance": 3,
+   "id": "9a8fd23d",
+   "added": "2026-11-06T20:14"
+  },
+  {
+   "type": "example",
+   "title": "95% CI example for a mean",
+   "content": "With $n=100$, sample mean $50$, and sample SD $10$: $SE=10/\\sqrt{100}=1$. Approximate 95% CI: $50\\pm1.96=(48.04,51.96)$.",
+   "importance": 2,
+   "id": "6182311f",
+   "added": "2026-11-06T20:14"
+  }
+ ],
+ "pending": [
+  {
+   "type": "concept",
+   "title": "API token usage reporting",
+   "content": "An assistant may not have access to exact token counts during a conversation; check the API response\u2019s `usage` field for input and output token totals.",
+   "importance": 1,
+   "id": "d45672e1",
+   "added": "2026-11-06T20:11"
+  },
+  {
+   "type": "tip",
+   "title": "Confidence interval assumptions",
+   "content": "The approximation relies on an independent random sample and a suitable sampling distribution.",
+   "importance": 2,
+   "id": "cb8ca458",
+   "added": "2026-11-06T20:14"
+  }
+ ],
+ "notion_page_id": null
+}

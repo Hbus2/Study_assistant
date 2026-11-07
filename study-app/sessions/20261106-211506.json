@@ -1,0 +1,431 @@
+{
+ "id": "20261106-211506",
+ "meta": {
+  "subject": "",
+  "course": "",
+  "chapter": "",
+  "lesson": "",
+  "goal": ""
+ },
+ "messages": [
+  {
+   "role": "user",
+   "text": "lets do it",
+   "images": []
+  },
+  {
+   "role": "assistant",
+   "text": "*(Demo mode: this is a sample answer, not a real reply to your question.)*\n\nA **z-score** tells you how many standard deviations a value is from the mean:\n\n$$z = \\frac{x - \\mu}{\\sigma}$$\n\n**Example:** test scores have $\\mu = 70$ and $\\sigma = 8$. A score of 86 gives $z = (86-70)/8 = 2$, so it's 2 standard deviations above average.\n\nAbout 95% of values fall between $z = -1.96$ and $z = 1.96$.\n\n**Takeaway:** standardise first, then use the normal table. "
+  },
+  {
+   "role": "user",
+   "text": "Give me confidence intervals sample mean and z scores. ",
+   "images": []
+  },
+  {
+   "role": "assistant",
+   "text": "# Study guide: sample means, $z$-scores, and confidence intervals\n\n## 1. The big picture\n\n**Concept map**\n\n$$\n\\text{Population mean } \\mu\n\\;\\longrightarrow\\;\n\\text{sample mean } \\bar{x}\n\\;\\longrightarrow\\;\n\\text{standard error}\n\\;\\longrightarrow\\;\n\\begin{cases}\nz\\text{-score: compare } \\bar{x} \\text{ with } \\mu\\\\\n\\text{confidence interval: estimate } \\mu\n\\end{cases}\n$$\n\n- $\\mu$: population mean\n- $\\sigma$: population standard deviation\n- $\\bar{x}$: sample mean\n- $n$: sample size\n\n*[Source: standard statistical notation and formulas.]*\n\n## 2. Sample mean\n\n### Rule\n\nThe sample mean is the average of the observations:\n\n$$\n\\bar{x}=\\frac{\\sum x_i}{n}.\n$$\n\n### Example\n\nFor the sample $4, 6, 8$,\n\n$$\n\\bar{x}=\\frac{4+6+8}{3}=6.\n$$\n\nWe often use $\\bar{x}$ to estimate the unknown population mean $\\mu$.\n\n*[Source: standard formula; illustrative example.]*\n\n## 3. $z$-scores\n\n### Rule\n\nA $z$-score measures how many standard deviations a value is from its mean.\n\nFor an **individual value** $x$:\n\n$$\nz=\\frac{x-\\mu}{\\sigma}.\n$$\n\nFor a **sample mean** $\\bar{x}$, use its standard error instead:\n\n$$\nz=\\frac{\\bar{x}-\\mu}{\\sigma/\\sqrt{n}},\n\\qquad\nSE_{\\bar{x}}=\\frac{\\sigma}{\\sqrt{n}}.\n$$\n\nThe standard error measures how much sample means typically vary from sample to sample.\n\n### Example: a sample mean\n\nSuppose $\\mu=100$, $\\sigma=15$, $n=25$, and $\\bar{x}=102$.\n\n1. Find the standard error: $SE=15/\\sqrt{25}=3$.\n2. Standardize the sample mean: $z=(102-100)/3\\approx0.67$.\n\nSo the sample mean is approximately **0.67 standard errors above** the population mean.\n\n> **Common mistake:** For a sample mean, divide by $\\sigma/\\sqrt n$, not by $\\sigma$. The latter is the standard deviation for individual values.\n\n*[Source: standard formulas; illustrative example.]*\n\n## 4. Confidence intervals for a population mean\n\n### Rule\n\nWhen the population standard deviation $\\sigma$ is known, a $z$-confidence interval for $\\mu$ is:\n\n$$\n\\boxed{\\bar{x}\\pm z^*\\frac{\\sigma}{\\sqrt n}}\n$$\n\nHere, $z^*$ is the critical value for the chosen confidence level.\n\n| Confidence level | $z^*$ |\n|---|---:|\n| 90% | 1.645 |\n| 95% | 1.96 |\n| 99% | 2.576 |\n\nThis interval is exact for a normally distributed population; for a sufficiently large random sample, it is often used as an approximation more generally.\n\n### Worked example\n\nSuppose $\\bar{x}=102$, $\\sigma=15$, and $n=25$. Find a 95% confidence interval for $\\mu$.\n\n1. **Choose the critical value:** $z^*=1.96$ for 95% confidence.\n2. **Find the standard error:** $SE=15/\\sqrt{25}=3$.\n3. **Find the margin of error:** $1.96(3)=5.88$.\n4. **Add and subtract it from the sample mean:**\n\n$$\n102\\pm5.88=\\boxed{(96.12,\\ 107.88)}.\n$$\n\nWe are **95% confident** that the population mean lies between 96.12 and 107.88. More precisely, if we repeatedly sampled this way and constructed intervals, approximately 95% of those intervals would contain the fixed population mean.\n\n> **Common mistakes**\n> - A confidence interval estimates the **population mean**, not where 95% of individual observations fall.\n> - If $\\sigma$ is unknown, use the sample standard deviation $s$ and typically a **$t$-interval**, especially for small samples.\n> - Higher confidence gives a wider interval; a larger sample gives a narrower one, all else equal.\n\n*[Source: standard statistical formulas and interpretation; illustrative example.]*\n\n## 5. Practice\n\nTry these before checking the answers.\n\n1. An individual score is 86, with $\\mu=70$ and $\\sigma=8$. Find its $z$-score.\n2. A sample has $\\bar{x}=54$, $n=36$, from a population with $\\mu=50$ and $\\sigma=12$. Find the $z$-score of the sample mean.\n3. Find a **95% confidence interval** for $\\mu$ if $\\bar{x}=80$, $\\sigma=12$, and $n=36$.\n4. Find a **90% confidence interval** if $\\bar{x}=50$, $\\sigma=10$, and $n=25$.\n5. What minimum sample size gives a 95% margin of error of at most 2 when $\\sigma=10$?\n6. If the sample size is quadrupled, what happens to the standard error? Explain briefly.\n\n### Answers\n\n1. $z=(86-70)/8=\\boxed{2}$.\n2. $SE=12/\\sqrt{36}=2$, so $z=(54-50)/2=\\boxed{2}$.\n3. $80\\pm1.96(2)=\\boxed{(76.08,\\ 83.92)}$.\n4. $50\\pm1.645(2)=\\boxed{(46.71,\\ 53.29)}$.\n5. $n\\geq(1.96\\cdot10/2)^2=96.04$, so round **up**: $\\boxed{97}$.\n6. It is **halved**, because $SE=\\sigma/\\sqrt n$ and $\\sqrt{4n}=2\\sqrt n$.\n\n*[Source: original practice questions using the standard formulas above.]*\n\n**Takeaway:** Use a $z$-score to standardize a value; use $\\bar{x}\\pm z^*SE$ to estimate a population mean."
+  }
+ ],
+ "notes": [
+  {
+   "type": "definition",
+   "title": "Z-score",
+   "importance": 3,
+   "content": "How many standard deviations a value $x$ lies from the mean.",
+   "id": "826ae3cc",
+   "added": "2026-11-06T21:15"
+  },
+  {
+   "type": "formula",
+   "title": "Z-score formula",
+   "importance": 3,
+   "latex": "z = \\frac{x-\\mu}{\\sigma}",
+   "content": "Subtract the mean, divide by the standard deviation.",
+   "visual": {
+    "kind": "chart",
+    "chart_type": "normal",
+    "caption": "95% of values lie within \u00b11.96",
+    "params": {
+     "mu": 0,
+     "sigma": 1,
+     "shade_from": -1.96,
+     "shade_to": 1.96,
+     "title": "Standard normal"
+    }
+   },
+   "id": "bd7d17ed",
+   "added": "2026-11-06T21:15"
+  },
+  {
+   "type": "formula",
+   "title": "Sample mean and standard error",
+   "content": "The sample mean is $\\bar{x}=\\sum x_i/n$. If population SD $\\sigma$ is known, the standard error of the sample mean is $SE_{\\bar{x}}=\\sigma/\\sqrt n$.",
+   "latex": "\\bar{x}=\\frac{\\sum x_i}{n},\\qquad SE_{\\bar{x}}=\\frac{\\sigma}{\\sqrt n}",
+   "importance": 3,
+   "id": "12a302e4",
+   "added": "2026-11-06T21:16"
+  },
+  {
+   "type": "formula",
+   "title": "Z confidence interval for a population mean",
+   "content": "When population SD $\\sigma$ is known, a confidence interval for $\\mu$ is $\\bar{x}\\pm z^*\\sigma/\\sqrt n$. Common two-sided critical values: 90%: 1.645; 95%: 1.96; 99%: 2.576.",
+   "latex": "\\bar{x}\\pm z^*\\frac{\\sigma}{\\sqrt n}",
+   "importance": 3,
+   "id": "493095bb",
+   "added": "2026-11-06T21:16"
+  },
+  {
+   "type": "procedure",
+   "title": "Constructing a z confidence interval",
+   "content": "1. Select $z^*$ for the confidence level. 2. Calculate $SE=\\sigma/\\sqrt n$. 3. Calculate margin of error $z^*SE$. 4. Report $\\bar{x}\\pm z^*SE$. Round a minimum sample size up to the next whole number.",
+   "importance": 3,
+   "id": "867bf55d",
+   "added": "2026-11-06T21:16"
+  },
+  {
+   "type": "concept",
+   "title": "Interpreting confidence intervals",
+   "content": "A 95% confidence procedure produces intervals that contain the fixed population mean in about 95% of repeated samples. The interval estimates the population mean; it does not describe the range containing 95% of individual observations. Higher confidence widens the interval; increasing $n$ narrows it.",
+   "importance": 3,
+   "id": "1b75bfb7",
+   "added": "2026-11-06T21:16"
+  }
+ ],
+ "pending": [
+  {
+   "type": "example",
+   "title": "Test score z-score",
+   "importance": 2,
+   "content": "$\\mu=70,\\ \\sigma=8,\\ x=86 \\Rightarrow z = 2$ (2 SDs above average).",
+   "id": "f99e68fa",
+   "added": "2026-11-06T21:15"
+  },
+  {
+   "type": "procedure",
+   "title": "Choosing z vs t",
+   "importance": 2,
+   "content": "1. Is \u03c3 known? Use z.\n2. Unknown \u03c3, small n? Use t with n\u22121 df.",
+   "visual": {
+    "kind": "diagram",
+    "mermaid": "flowchart TD\n  A[Population \u03c3 known?] -->|Yes| Z[z-test]\n  A -->|No| B[n \u2265 30?]\n  B -->|Yes| Z2[z \u2248 t, either works]\n  B -->|No| T[t-test, df = n-1]"
+   },
+   "id": "38ecf2ae",
+   "added": "2026-11-06T21:15"
+  },
+  {
+   "type": "tip",
+   "title": "Sketch the curve first",
+   "importance": 1,
+   "content": "Shade the area you want before using the table, so you can catch sign mistakes.",
+   "id": "388c17ca",
+   "added": "2026-11-06T21:15"
+  },
+  {
+   "type": "example",
+   "title": "95% z interval example",
+   "content": "For $\\bar{x}=102$, known $\\sigma=15$, and $n=25$: $SE=15/5=3$. With $z^*=1.96$, margin of error is $5.88$, so the interval is $102\\pm5.88=(96.12,107.88)$.",
+   "importance": 2,
+   "id": "c5137950",
+   "added": "2026-11-06T21:16"
+  }
+ ],
+ "notion_page_id": null,
+ "guide": {
+  "title": "Sample Means, z-Scores, and Confidence Intervals",
+  "overview": "This guide explains how to calculate sample means, standardize individual values and sample means, and construct z-confidence intervals for a population mean. The key distinction is between the population standard deviation and the standard error of a sample mean. Worked examples show the calculations, while interpretation notes explain what confidence intervals do\u2014and do not\u2014tell you.",
+  "sections": [
+   {
+    "heading": "1. Sample means and statistical notation",
+    "body": "**Rule:** The sample mean is the average of the observed values:\n\n$$\n\\bar{x}=\\frac{\\sum x_i}{n}.\n$$\n\n- $x_i$: an observation in the sample.\n- $n$: sample size.\n- $\\bar{x}$: sample mean, used to estimate the population mean.\n- $\\mu$: population mean.\n- $\\sigma$: population standard deviation.\n\n**Example:** For the sample $4,6,8$,\n\n$$\n\\bar{x}=\\frac{4+6+8}{3}=\\frac{18}{3}=6.\n$$\n\n**Keep the distinction clear:** $\\bar{x}$ describes the sample; $\\mu$ describes the population.",
+    "key_points": [
+     "Add the observations and divide by the number of observations.",
+     "The sample mean estimates the population mean.",
+     "Do not confuse the sample mean, $\\bar{x}$, with the population mean, $\\mu$."
+    ],
+    "cues": [
+     "How is the sample mean calculated?",
+     "What do $\\bar{x}$ and $\\mu$ represent?",
+     "What do $n$ and $\\sigma$ represent?"
+    ],
+    "summary": "The sample mean summarizes the observations in a sample and is used to estimate the population mean.",
+    "sources": [
+     "N3",
+     "Q2"
+    ],
+    "connects_to": "The sample mean is the center of the confidence interval."
+   },
+   {
+    "heading": "2. z-scores for individual values",
+    "body": "**Rule:** A z-score tells you how many standard deviations an individual value lies from the population mean:\n\n$$\nz=\\frac{x-\\mu}{\\sigma}.\n$$\n\nSubtract the mean first, then divide by the population standard deviation. A positive score indicates a value above the mean; a negative score indicates a value below it.\n\n**Example:** Test scores have $\\mu=70$ and $\\sigma=8$. For a score of $86$,\n\n$$\nz=\\frac{86-70}{8}=\\frac{16}{8}=2.\n$$\n\nThe score is **2 standard deviations above the mean**.\n\n**Common-mistake warning:** This formula uses $\\sigma$ because it standardizes an individual value. A sample mean needs a different denominator.",
+    "key_points": [
+     "A z-score expresses distance from the mean in standard-deviation units.",
+     "For an individual value, divide by $\\sigma$.",
+     "Interpret both the size and the sign of the z-score."
+    ],
+    "cues": [
+     "What does a z-score measure?",
+     "What is the formula for an individual value?",
+     "What does $z=2$ mean?"
+    ],
+    "summary": "Standardizing an individual value means subtracting the population mean and dividing by the population standard deviation.",
+    "sources": [
+     "N1",
+     "N2",
+     "Q1",
+     "Q2"
+    ],
+    "connects_to": "For a sample mean, replace the individual-value standard deviation with the standard error."
+   },
+   {
+    "heading": "3. Standard error and z-scores for sample means",
+    "body": "**Rule:** When the population standard deviation is known, the standard error of the sample mean is\n\n$$\nSE_{\\bar{x}}=\\frac{\\sigma}{\\sqrt n}.\n$$\n\nThe standard error describes how much sample means typically vary from sample to sample. To standardize a sample mean, use that standard error:\n\n$$\nz=\\frac{\\bar{x}-\\mu}{\\sigma/\\sqrt n}.\n$$\n\n**Example:** Suppose $\\mu=100$, $\\sigma=15$, $n=25$, and $\\bar{x}=102$.\n\n1. Calculate the standard error:\n\n$$\nSE_{\\bar{x}}=\\frac{15}{\\sqrt{25}}=\\frac{15}{5}=3.\n$$\n\n2. Standardize the sample mean:\n\n$$\nz=\\frac{102-100}{3}=\\frac{2}{3}\\approx0.67.\n$$\n\nThe sample mean is approximately **0.67 standard errors above the population mean**.\n\n**Common-mistake warning:** For a sample mean, do not divide by $15$ in this example. Divide by its standard error, $3$.",
+    "key_points": [
+     "Standard error describes the variability of sample means.",
+     "Use $\\sigma$ for individual values and $\\sigma/\\sqrt n$ for sample means.",
+     "Larger sample sizes reduce the standard error when $\\sigma$ stays fixed."
+    ],
+    "cues": [
+     "What does standard error measure?",
+     "How is $SE_{\\bar{x}}$ calculated?",
+     "Which denominator standardizes a sample mean?",
+     "How does increasing $n$ affect SE?"
+    ],
+    "summary": "Sample means are standardized using their standard error, not the standard deviation of individual observations.",
+    "sources": [
+     "N3",
+     "Q2"
+    ],
+    "connects_to": "The same standard error is used to calculate the margin of error for a confidence interval."
+   },
+   {
+    "heading": "4. Constructing a z-confidence interval",
+    "body": "**Rule:** When population standard deviation $\\sigma$ is known, a z-confidence interval for the population mean is\n\n$$\n\\bar{x}\\pm z^*\\frac{\\sigma}{\\sqrt n}.\n$$\n\nThe critical value $z^*$ depends on the two-sided confidence level:\n\n| Confidence level | $z^*$ |\n|---|---:|\n| 90% | 1.645 |\n| 95% | 1.96 |\n| 99% | 2.576 |\n\nThe interval is exact for a normally distributed population; for a sufficiently large random sample, it is often used as an approximation more generally.\n\n**Procedure**\n1. Select $z^*$ for the confidence level.\n2. Calculate $SE=\\sigma/\\sqrt n$.\n3. Calculate the margin of error, $z^*SE$.\n4. Report $\\bar{x}\\pm z^*SE$, or the lower and upper endpoints.\n\n**Worked example:** Find a 95% confidence interval using $\\bar{x}=102$, $\\sigma=15$, and $n=25$.\n\n1. For 95% confidence, $z^*=1.96$.\n2. The standard error is\n\n$$\nSE=\\frac{15}{\\sqrt{25}}=3.\n$$\n\n3. The margin of error is\n\n$$\nz^*SE=1.96(3)=5.88.\n$$\n\n4. The confidence interval is\n\n$$\n102\\pm5.88=(96.12,107.88).\n$$\n\n**Common-mistake warning:** The standard error is $3$, but the margin of error is $5.88$. They are not the same quantity.",
+    "key_points": [
+     "Use the critical value that matches the confidence level.",
+     "Margin of error equals critical value times standard error.",
+     "Subtract and add the margin of error to the sample mean.",
+     "The z-interval here uses a known population standard deviation."
+    ],
+    "cues": [
+     "What is the z-confidence interval formula?",
+     "Which critical values match 90%, 95%, and 99%?",
+     "How do SE and margin of error differ?",
+     "What are the four construction steps?"
+    ],
+    "summary": "A z-confidence interval is centered at the sample mean and extends one margin of error in each direction.",
+    "sources": [
+     "N3",
+     "N4",
+     "N5",
+     "Q2"
+    ],
+    "visual": {
+     "kind": "diagram",
+     "edges": [
+      {
+       "from": "Confidence level",
+       "to": "Choose z*"
+      },
+      {
+       "from": "Known SD and sample size",
+       "to": "Calculate SE"
+      },
+      {
+       "from": "Choose z*",
+       "to": "Margin of error = z* \u00d7 SE"
+      },
+      {
+       "from": "Calculate SE",
+       "to": "Margin of error = z* \u00d7 SE"
+      },
+      {
+       "from": "Margin of error = z* \u00d7 SE",
+       "to": "Sample mean \u00b1 margin of error"
+      }
+     ],
+     "caption": "Choose the critical value, calculate SE, and combine them to form the interval."
+    }
+   },
+   {
+    "heading": "5. Interpreting confidence and interval width",
+    "body": "**Rule:** A 95% confidence procedure produces intervals that contain the fixed population mean in about 95% of repeated samples. The interval estimates the **population mean**, not the range containing 95% of individual observations.\n\nHolding other quantities fixed:\n- **Higher confidence gives a wider interval.**\n- **Increasing $n$ gives a narrower interval.**\n\n**Example:** The interval $(96.12,107.88)$ is a 95% confidence interval for $\\mu$, calculated from $\\bar{x}=102$, $\\sigma=15$, and $n=25$. The 95% refers to how often the procedure captures the population mean over repeated samples. It does not say that 95% of individual observations lie between these endpoints.\n\nFor the same sample mean, $\\sigma$, and $n$, a 99% interval is wider than a 95% interval because $2.576>1.96$. A 90% interval is narrower because $1.645<1.96$.\n\n**Common-mistake warning:** Keep the target of the interval clear: it estimates $\\mu$, not individual observations.",
+    "key_points": [
+     "The population mean is fixed; the intervals vary across repeated samples.",
+     "Confidence describes the long-run success of the interval procedure.",
+     "Higher confidence widens an interval when other quantities are fixed.",
+     "Larger samples narrow an interval when confidence and $\\sigma$ are fixed."
+    ],
+    "cues": [
+     "What does 95% confidence mean?",
+     "Does a confidence interval describe individual observations?",
+     "How does confidence affect width?",
+     "How does sample size affect width?"
+    ],
+    "summary": "Confidence refers to repeated-sampling coverage of the population mean. Interval width increases with confidence and decreases with sample size, holding other quantities fixed.",
+    "sources": [
+     "N4",
+     "N6",
+     "Q2"
+    ],
+    "connects_to": "Interval width follows from the critical value and standard error used in construction."
+   }
+  ],
+  "formula_sheet": [
+   {
+    "name": "Sample mean",
+    "latex": "\\bar{x}=\\frac{\\sum x_i}{n}",
+    "when_to_use": "Average the sample observations. [N3, Q2]"
+   },
+   {
+    "name": "Individual-value z-score",
+    "latex": "z=\\frac{x-\\mu}{\\sigma}",
+    "when_to_use": "Measure an individual value's distance from the mean in standard-deviation units. [N1, N2, Q1, Q2]"
+   },
+   {
+    "name": "Standard error of the sample mean",
+    "latex": "SE_{\\bar{x}}=\\frac{\\sigma}{\\sqrt n}",
+    "when_to_use": "Measure variability of sample means when population SD is known. [N3, Q2]"
+   },
+   {
+    "name": "Sample-mean z-score",
+    "latex": "z=\\frac{\\bar{x}-\\mu}{\\sigma/\\sqrt n}",
+    "when_to_use": "Compare a sample mean with the population mean using standard-error units. [Q2]"
+   },
+   {
+    "name": "Margin of error",
+    "latex": "z^*SE_{\\bar{x}}=z^*\\frac{\\sigma}{\\sqrt n}",
+    "when_to_use": "Calculate how far the confidence interval extends on either side of the sample mean. [N4, N5]"
+   },
+   {
+    "name": "z-confidence interval for a population mean",
+    "latex": "\\bar{x}\\pm z^*\\frac{\\sigma}{\\sqrt n}",
+    "when_to_use": "Estimate the population mean with known population SD; use 1.645 for 90%, 1.96 for 95%, or 2.576 for 99% confidence. [N4, N5, Q2]"
+   }
+  ],
+  "concept_map": [
+   {
+    "from": "Sample observations",
+    "to": "Sample mean",
+    "label": "average"
+   },
+   {
+    "from": "Sample mean",
+    "to": "Population mean",
+    "label": "estimates"
+   },
+   {
+    "from": "Individual value",
+    "to": "Individual z-score",
+    "label": "subtract mean; divide by SD"
+   },
+   {
+    "from": "Population SD and sample size",
+    "to": "Standard error",
+    "label": "SD divided by square root of n"
+   },
+   {
+    "from": "Sample mean and standard error",
+    "to": "Sample-mean z-score",
+    "label": "standardize relative to population mean"
+   },
+   {
+    "from": "Confidence level",
+    "to": "Critical value",
+    "label": "select"
+   },
+   {
+    "from": "Critical value and standard error",
+    "to": "Margin of error",
+    "label": "multiply"
+   },
+   {
+    "from": "Sample mean and margin of error",
+    "to": "Confidence interval",
+    "label": "center \u00b1 margin"
+   },
+   {
+    "from": "Confidence interval procedure",
+    "to": "Repeated-sampling coverage",
+    "label": "confidence interpretation"
+   }
+  ],
+  "common_mistakes": [
+   "Using $\\sigma$ rather than $\\sigma/\\sqrt n$ to standardize a sample mean. [Q2]",
+   "Confusing standard error with margin of error: the margin is $z^*SE$. [N5]",
+   "Choosing a critical value for the wrong confidence level. [N4, N5]",
+   "Treating a confidence interval for the mean as a range containing 95% of individual observations. [N6]",
+   "Saying that higher confidence makes an interval narrower; it makes it wider, with other quantities fixed. [N6]",
+   "Forgetting to round a calculated minimum sample size up to the next whole number. [N5]"
+  ],
+  "memory_tricks": [
+   "Subtract the mean, then divide by the appropriate measure of spread. [N2, Q2]",
+   "Individual value \u2192 SD; sample mean \u2192 SE. [Q2]",
+   "Confidence interval = sample mean \u00b1 margin of error. [N4, N5]",
+   "More confidence \u2192 wider; more observations \u2192 narrower, holding other quantities fixed. [N6]"
+  ],
+  "practice_questions": [
+   {
+    "question": "Find the sample mean of $4,6,8$. State which symbol represents this mean and which represents the population mean.",
+    "answer": "Add the observations and divide by the sample size:\n\n$$\n\\bar{x}=\\frac{4+6+8}{3}=\\frac{18}{3}=6.\n$$\n\nThe sample mean is $\\bar{x}=6$. The population mean is represented by $\\mu$.",
+    "difficulty": "easy",
+    "sources": [
+     "N3",
+     "Q2"
+    ]
+   },
+   {
+    "question": "Test scores have population mean $70$ and population standard deviation $8$. Find and interpret the z-score of an individual score of $86$.",
+    "answer": "Use the individual-value formula:\n\n$$\nz=\\frac{x-\\mu}{\\sigma}=\\frac{86-70}{8}=2.\n$$\n\nThe score of $86$ lies 2 standard deviations above the population mean.",
+    "difficulty": "easy",
+    "sources": [
+     "N1",
+     "N2",
+     "Q1"
+    ]
+   },
+   {
+    "question": "Suppose $\\mu=100$, $\\sigma=15$, $n=25$, and $\\bar{x}=102$. Calculate the standard error and the z-score of the sample mean. Explain why dividing by $15$ would be incorrect.",
+    "answer": "First calculate the standard error:\n\n$$\nSE_{\\bar{x}}=\\frac{15}{\\sqrt{25}}=3.\n$$\n\nThen standardize the sample mean:\n\n$$\nz=\\frac{102-100}{3}=\\frac{2}{3}\\approx0.67.\n$$\n\nThe sample mean is about 0.67 standard errors above the population mean. Dividing by $15$ would use the standard deviation of individual observations, rather than the standard error of the sample mean.",
+    "difficulty": "medium",
+    "sources": [
+     "N3",
+     "Q2"
+    ]
+   },
+   {
+    "question": "Construct a 95% z-confidence interval for the population mean when $\\bar{x}=102$, $\\sigma=15$, and $n=25$. Show the critical value, standard error, margin of error, and endpoints.",
+    "answer": "For 95% confidence, use $z^*=1.96$.\n\n$$\nSE=\\frac{15}{\\sqrt{25}}=3.\n$$\n\nThe margin of error is\n\n$$\n1.96(3)=5.88.\n$$\n\nTherefore,\n\n$$\n\\bar{x}\\pm z^*SE=102\\pm5.88.\n$$\n\nThe lower endpoint is $102-5.88=96.12$, and the upper endpoint is $102+5.88=107.88$. The confidence interval is $(96.12,107.88)$.",
+    "difficulty": "medium",
+    "sources": [
+     "N3",
+     "N4",
+     "N5",
+     "Q2"
+    ]
+   },
+   {
+    "question": "Match 90%, 95%, and 99% confidence to their critical values. For fixed $\\bar{x}$, $\\sigma$, and $n$, rank the resulting intervals from narrowest to widest and explain your reasoning.",
+    "answer": "The critical values are:\n- 90%: $1.645$.\n- 95%: $1.96$.\n- 99%: $2.576$.\n\nWith $\\sigma$ and $n$ fixed, the standard error stays the same. The margin of error is $z^*SE$, so a larger critical value gives a larger margin. Thus the order from narrowest to widest is **90%, 95%, 99%**.",
+    "difficulty": "medium",
+    "sources": [
+     "N4",
+     "N5",
+     "N6"
+    ]
+   },
+   {
+    "question": "A student says: \u201cThe 95% interval $(96.12,107.88)$ contains 95% of individual observations. Raising confidence to 99% makes it narrower, and increasing the sample size makes it wider.\u201d Correct each claim and give the proper repeated-sampling interpretation of 95% confidence.",
+    "answer": "1. **Target of the interval:** It estimates the population mean, not the range containing 95% of individual observations.\n2. **Higher confidence:** With the other quantities fixed, raising confidence to 99% makes the interval wider, because the critical value rises from $1.96$ to $2.576$.\n3. **Larger sample:** With confidence and $\\sigma$ fixed, increasing $n$ reduces $SE=\\sigma/\\sqrt n$, so the interval becomes narrower.\n4. **Correct interpretation:** Over repeated samples, about 95% of the intervals produced by this 95% confidence procedure contain the fixed population mean.",
+    "difficulty": "hard",
+    "sources": [
+     "N3",
+     "N4",
+     "N6",
+     "Q2"
+    ]
+   }
+  ]
+ },
+ "guide_issues": []
+}
